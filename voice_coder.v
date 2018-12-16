@@ -113,6 +113,7 @@ I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0])
 
 I2S_Audio myaudio(AUD_XCK, KEY[0], AUD_BCLK, AUD_DACDAT, AUD_DACLRCK, audiodata);
 
-Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
+//Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
+I2S_Audio myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata);
 
 endmodule

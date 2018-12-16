@@ -416,4 +416,5 @@ set_global_assignment -name VERILOG_FILE I2S_Audio.v
 set_global_assignment -name VERILOG_FILE Sin_Generator.v
 set_global_assignment -name QIP_FILE audio_clk.qip
 set_global_assignment -name SIP_FILE audio_clk.sip
+set_global_assignment -name VERILOG_FILE I2S_Audioin.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
