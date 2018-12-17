@@ -1,6 +1,6 @@
 module I2S_Audioin(AUD_XCK,
                  reset_n,
-                 //AUD_BCK,
+                 AUD_BCK,
 				 AUD_DATA,
 				 AUD_LRCK,
 				 audiodata,
@@ -8,25 +8,28 @@ module I2S_Audioin(AUD_XCK,
 				 hex1,
 				 hex2,
 				 hex3,
-				 led0
+				 led0,
+				 hex4,
+				 hex5
 				 );
 input AUD_XCK;
 input reset_n;
-reg AUD_BCK;
+output reg AUD_BCK;
 //output reg AUD_BCK;
 input AUD_DATA;
 output reg AUD_LRCK;
 output reg [15:0] audiodata;
-
-//=========
+//=================================
 //test
-//=========
+//=================================
+reg [7:0] datacount; 
 output reg [6:0] hex0;
 output reg [6:0] hex1;
 output reg [6:0] hex2;
 output reg [6:0] hex3;
 output reg [6:0] hex4;
 output reg led0;
+output reg [6:0] hex5;
 ////
 //input [3:0] voi;
 ////
@@ -94,6 +97,10 @@ begin
 	audiodata[bitaddr[3:0]] = AUD_DATA;
 end
 		
+always @(posedge AUD_DATA)
+begin
+	datacount<=8'hac;
+end		
 		
 always @(*)
 begin
@@ -178,6 +185,47 @@ begin
 	 endcase
 	 
 	 led0 = AUD_BCK;
+	 
+	 case(datacount[3:0])
+		0: hex4=7'b1000000;  //0
+		1: hex4=7'b1111001;  //1
+		2: hex4=7'b0100100;  //2
+		3: hex4=7'b0110000;  //3
+		4: hex4=7'b0011001;  //4
+		5: hex4=7'b0010010;  //5
+		6: hex4=7'b0000010;  //6
+		7: hex4=7'b1111000;  //7
+		8: hex4=7'b0000000;  //8
+		9: hex4=7'b0010000;  //9
+		10: hex4=7'b0001000;  //10
+		11: hex4=7'b0000011;  //11
+		12: hex4=7'b1000110;  //12
+		13: hex4=7'b0100001;  //13
+		14: hex4=7'b0000110;  //14
+		15: hex4=7'b0001110;  //15
+		default: hex4=7'b0000000;
+	 endcase 
+	 
+	 case(datacount[7:4])
+		0: hex5=7'b1000000;  //0
+		1: hex5=7'b1111001;  //1
+		2: hex5=7'b0100100;  //2
+		3: hex5=7'b0110000;  //3
+		4: hex5=7'b0011001;  //4
+		5: hex5=7'b0010010;  //5
+		6: hex5=7'b0000010;  //6
+		7: hex5=7'b1111000;  //7
+		8: hex5=7'b0000000;  //8
+		9: hex5=7'b0010000;  //9
+		10: hex5=7'b0001000;  //10
+		11: hex5=7'b0000011;  //11
+		12: hex5=7'b1000110;  //12
+		13: hex5=7'b0100001;  //13
+		14: hex5=7'b0000110;  //14
+		15: hex5=7'b0001110;  //15
+		default: hex5=7'b0000000;
+	 endcase
+	 
 end		
 		
 

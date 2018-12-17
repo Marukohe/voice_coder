@@ -111,9 +111,9 @@ clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, KEY[0], AUD_BCLK, AUD_DACDAT, AUD_DACLRCK, audiodata);
+I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, audiodata);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
-I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_ADCDAT, AUD_ADCLRCK, audiodata, hex0,hex1,hex2,hex3,LEDR[3]);
+I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, hex0,hex1,hex2,hex3,LEDR[3],hex4,hex5);
 
 endmodule
