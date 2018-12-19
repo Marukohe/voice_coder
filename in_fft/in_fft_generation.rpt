@@ -1,0 +1,38 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\intelFPGA_lite\My_design\voice_coder\in_fft.qsys --block-symbol-file --output-directory=D:\intelFPGA_lite\My_design\voice_coder\in_fft --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading voice_coder/in_fft.qsys
+Progress: Reading input file
+Progress: Adding fft_ii_0 [altera_fft_ii 17.1]
+Progress: Parameterizing module fft_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: in_fft.fft_ii_0: Radix-2 digit reverse implied
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\intelFPGA_lite\My_design\voice_coder\in_fft.qsys --synthesis=VERILOG --output-directory=D:\intelFPGA_lite\My_design\voice_coder\in_fft\synthesis --family="Cyclone V" --part=5CSXFC6D6F31C6
+Progress: Loading voice_coder/in_fft.qsys
+Progress: Reading input file
+Progress: Adding fft_ii_0 [altera_fft_ii 17.1]
+Progress: Parameterizing module fft_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: in_fft.fft_ii_0: Radix-2 digit reverse implied
+Info: in_fft: Generating in_fft "in_fft" for QUARTUS_SYNTH
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi3.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr2.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi4.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr3.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr4.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi1.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi2.hex
+Info: fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr1.hex
+Info: fft_ii_0: "in_fft" instantiated altera_fft_ii "fft_ii_0"
+Info: in_fft: Done "in_fft" with 2 modules, 50 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
