@@ -20,7 +20,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "AUD_DACDAT",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
@@ -49,10 +49,6 @@
 				},
 				{
 					"name" : "CLOCK_50",
-					"strict" : false
-				},
-				{
-					"name" : "AUD_ADCDAT",
 					"strict" : false
 				}
 			]

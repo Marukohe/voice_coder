@@ -1,5 +1,5 @@
 Assembler report for voice_coder
-Sun Dec 16 23:32:27 2018
+Wed Dec 19 23:53:54 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Dec 16 23:32:27 2018 ;
+; Assembler Status      ; Successful - Wed Dec 19 23:53:54 2018 ;
 ; Revision Name         ; voice_coder                           ;
 ; Top-level Entity Name ; voice_coder                           ;
 ; Family                ; Cyclone V                             ;
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+---------------------------------------------------+
 ; Option         ; Setting                                           ;
 +----------------+---------------------------------------------------+
-; JTAG usercode  ; 0x00B29F87                                        ;
-; Checksum       ; 0x00B29F87                                        ;
+; JTAG usercode  ; 0x00B1E825                                        ;
+; Checksum       ; 0x00B1E825                                        ;
 +----------------+---------------------------------------------------+
 
 
@@ -77,12 +77,12 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Dec 16 23:32:20 2018
+    Info: Processing started: Wed Dec 19 23:53:47 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off voice_coder -c voice_coder
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4851 megabytes
-    Info: Processing ended: Sun Dec 16 23:32:27 2018
+    Info: Peak virtual memory: 4853 megabytes
+    Info: Processing ended: Wed Dec 19 23:53:54 2018
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:07
 
