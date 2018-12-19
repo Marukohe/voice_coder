@@ -96,8 +96,12 @@ module voice_coder(
 wire clk_i2c;
 wire reset;
 wire [15:0] audiodata;
-
-
+wire [15:0] audiofifoin;
+wire [15:0] audiofifoout;
+wire rdemptyq2;
+wire wrfullq2;
+wire rdemptyq1;
+wire wrfullq1;
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -111,9 +115,12 @@ clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, audiodata);
+I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, audiofifiout);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
 I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, hex0,hex1,hex2,hex3,LEDR[3],hex4,hex5);
+
+FIFO inq2(audiodata,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoin,rdemptyq2,wrfullq2);
+FIFO inq1(audiofifoin,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoout,rdemptyq1,wrfullq1);
 
 endmodule
