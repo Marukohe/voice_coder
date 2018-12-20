@@ -1,5 +1,5 @@
 Analysis & Synthesis report for voice_coder
-Sun Dec 16 23:31:39 2018
+Thu Dec 20 20:33:08 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Dec 16 23:31:39 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec 20 20:33:08 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; voice_coder                                 ;
 ; Top-level Entity Name           ; voice_coder                                 ;
@@ -168,15 +168,15 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -185,16 +185,16 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+-----------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library   ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+-----------+
-; I2C_Audio_Config.v               ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/I2C_Audio_Config.v                         ;           ;
-; clkgen.v                         ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/clkgen.v                                   ;           ;
-; I2C_Controller.v                 ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/I2C_Controller.v                           ;           ;
-; I2S_Audio.v                      ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/I2S_Audio.v                                ;           ;
-; Sin_Generator.v                  ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/Sin_Generator.v                            ;           ;
-; audio_clk.v                      ; yes             ; User Wizard-Generated File   ; D:/My_design/voice_coder/audio_clk.v                                ; audio_clk ;
-; audio_clk/audio_clk_0002.v       ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/audio_clk/audio_clk_0002.v                 ; audio_clk ;
-; I2S_Audioin.v                    ; yes             ; User Verilog HDL File        ; D:/My_design/voice_coder/I2S_Audioin.v                              ;           ;
-; voice_coder.v                    ; yes             ; Auto-Found Verilog HDL File  ; D:/My_design/voice_coder/voice_coder.v                              ;           ;
-; altera_pll.v                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
+; I2C_Audio_Config.v               ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v          ;           ;
+; clkgen.v                         ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/clkgen.v                    ;           ;
+; I2C_Controller.v                 ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v            ;           ;
+; I2S_Audio.v                      ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/I2S_Audio.v                 ;           ;
+; Sin_Generator.v                  ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/Sin_Generator.v             ;           ;
+; audio_clk.v                      ; yes             ; User Wizard-Generated File   ; D:/intelFPGA_lite/My_design/voice_coder/audio_clk.v                 ; audio_clk ;
+; audio_clk/audio_clk_0002.v       ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/audio_clk/audio_clk_0002.v  ; audio_clk ;
+; I2S_Audioin.v                    ; yes             ; User Verilog HDL File        ; D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v               ;           ;
+; voice_coder.v                    ; yes             ; Auto-Found Verilog HDL File  ; D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v               ;           ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altera_pll.v ;           ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+-----------+
 
 
@@ -223,8 +223,8 @@ refer to the applicable agreement for further details.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; KEY[0]~input ;
 ; Maximum fan-out                             ; 51           ;
-; Total fan-out                               ; 1062         ;
-; Average fan-out                             ; 1.72         ;
+; Total fan-out                               ; 1063         ;
+; Average fan-out                             ; 1.73         ;
 +---------------------------------------------+--------------+
 
 
@@ -686,6 +686,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; hex2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
 ; hex3 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "hex3[6..1]" have no fanouts ;
 ; hex3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
+; hex4 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "hex4[6..1]" have no fanouts ;
+; hex4 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
+; hex5 ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "hex5[6..1]" have no fanouts ;
+; hex5 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
 +------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -746,7 +750,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -756,69 +760,305 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Dec 16 23:31:28 2018
+    Info: Processing started: Thu Dec 20 20:32:15 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off voice_coder -c voice_coder
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12248): Elaborating Platform Designer system entity "in_fft.qsys"
+Info (12250): 2018.12.20.20:32:45 Progress: Loading voice_coder/in_fft.qsys
+Info (12250): 2018.12.20.20:32:47 Progress: Reading input file
+Info (12250): 2018.12.20.20:32:47 Progress: Adding fft_ii_0 [altera_fft_ii 17.1]
+Info (12250): 2018.12.20.20:32:47 Progress: Parameterizing module fft_ii_0
+Info (12250): 2018.12.20.20:32:47 Progress: Building connections
+Info (12250): 2018.12.20.20:32:47 Progress: Parameterizing connections
+Info (12250): 2018.12.20.20:32:47 Progress: Validating
+Info (12250): 2018.12.20.20:32:49 Progress: Done reading input file
+Info (12250): In_fft.fft_ii_0: Radix-2 digit reverse implied
+Info (12250): In_fft: Generating in_fft "in_fft" for QUARTUS_SYNTH
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi3.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr2.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi4.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr3.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr4.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi1.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twi2.hex
+Info (12250): Fft_ii_0: --- add file: in_fft_fft_ii_0_opt_twr1.hex
+Info (12250): Fft_ii_0: "in_fft" instantiated altera_fft_ii "fft_ii_0"
+Info (12250): In_fft: Done "in_fft" with 2 modules, 50 files
+Info (12249): Finished elaborating Platform Designer system entity "in_fft.qsys"
+Info (12021): Found 1 design units, including 1 entities, in source file in_fft/synthesis/in_fft.v
+    Info (12023): Found entity 1: in_fft File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/in_fft.v Line: 6
+Info (12021): Found 2 design units, including 0 entities, in source file in_fft/synthesis/submodules/auk_dspip_text_pkg.vhd
+    Info (12022): Found design unit 1: auk_dspip_text_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_text_pkg.vhd Line: 60
+    Info (12022): Found design unit 2: auk_dspip_text_pkg-body File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_text_pkg.vhd Line: 76
+Info (12021): Found 2 design units, including 0 entities, in source file in_fft/synthesis/submodules/auk_dspip_math_pkg.vhd
+    Info (12022): Found design unit 1: auk_dspip_math_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_math_pkg.vhd Line: 51
+    Info (12022): Found design unit 2: auk_dspip_math_pkg-body File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_math_pkg.vhd Line: 128
+Info (12021): Found 1 design units, including 0 entities, in source file in_fft/synthesis/submodules/auk_dspip_lib_pkg.vhd
+    Info (12022): Found design unit 1: auk_dspip_lib_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_lib_pkg.vhd Line: 28
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_sink.vhd
+    Info (12022): Found design unit 1: auk_dspip_avalon_streaming_block_sink-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_sink.vhd Line: 59
+    Info (12023): Found entity 1: auk_dspip_avalon_streaming_block_sink File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_sink.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_source.vhd
+    Info (12022): Found design unit 1: auk_dspip_avalon_streaming_block_source-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_source.vhd Line: 47
+    Info (12023): Found entity 1: auk_dspip_avalon_streaming_block_source File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_source.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_roundsat.vhd
+    Info (12022): Found design unit 1: auk_dspip_roundsat-beh File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_roundsat.vhd Line: 61
+    Info (12023): Found entity 1: auk_dspip_roundsat File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_roundsat.vhd Line: 45
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/apn_fft_mult_can.vhd
+    Info (12022): Found design unit 1: apn_fft_mult_can-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_can.vhd Line: 39
+    Info (12023): Found entity 1: apn_fft_mult_can File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_can.vhd Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file in_fft/synthesis/submodules/apn_fft_mult_cpx_1825.v
+    Info (12023): Found entity 1: apn_fft_mult_cpx_1825 File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_cpx_1825.v Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/apn_fft_mult_cpx.vhd
+    Info (12022): Found design unit 1: apn_fft_mult_cpx-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_cpx.vhd Line: 39
+    Info (12023): Found entity 1: apn_fft_mult_cpx File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_cpx.vhd Line: 21
+Info (12021): Found 1 design units, including 0 entities, in source file in_fft/synthesis/submodules/hyper_opt_off_pkg.vhd
+    Info (12022): Found design unit 1: hyper_opt_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/hyper_opt_OFF_pkg.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/altera_fft_dual_port_ram.vhd
+    Info (12022): Found design unit 1: altera_fft_dual_port_ram-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_ram.vhd Line: 58
+    Info (12023): Found entity 1: altera_fft_dual_port_ram File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_ram.vhd Line: 36
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/altera_fft_dual_port_rom.vhd
+    Info (12022): Found design unit 1: altera_fft_dual_port_rom-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_rom.vhd Line: 43
+    Info (12023): Found entity 1: altera_fft_dual_port_rom File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_rom.vhd Line: 23
+Info (12021): Found 6 design units, including 3 entities, in source file in_fft/synthesis/submodules/altera_fft_mult_add.vhd
+    Info (12022): Found design unit 1: altera_fft_mult_add-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 42
+    Info (12022): Found design unit 2: altera_fft_mult_add_new-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 159
+    Info (12022): Found design unit 3: altera_fft_mult_add_old-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 415
+    Info (12023): Found entity 1: altera_fft_mult_add File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 23
+    Info (12023): Found entity 2: altera_fft_mult_add_new File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 140
+    Info (12023): Found entity 3: altera_fft_mult_add_old File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd Line: 396
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/altera_fft_single_port_rom.vhd
+    Info (12022): Found design unit 1: altera_fft_single_port_rom-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_single_port_rom.vhd Line: 40
+    Info (12023): Found entity 1: altera_fft_single_port_rom File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_single_port_rom.vhd Line: 23
+Info (12021): Found 2 design units, including 0 entities, in source file in_fft/synthesis/submodules/auk_fft_pkg.vhd
+    Info (12022): Found design unit 1: auk_fft_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_fft_pkg.vhd Line: 18
+    Info (12022): Found design unit 2: auk_fft_pkg-body File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_fft_pkg.vhd Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file in_fft/synthesis/submodules/hyper_pipeline_interface.v
+    Info (12023): Found entity 1: hyper_pipeline_interface File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/hyper_pipeline_interface.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file in_fft/synthesis/submodules/counter_module.sv
+    Info (12023): Found entity 1: counter_module File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/counter_module.sv Line: 17
+Info (12021): Found 1 design units, including 0 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_lib_pkg.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_lib_pkg (in_fft) File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_lib_pkg.vhd Line: 35
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_bit_reverse_addr_control.vhd
+    Info (12022): Found design unit 1: auk_dspip_bit_reverse_addr_control-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_addr_control.vhd Line: 79
+    Info (12023): Found entity 1: auk_dspip_bit_reverse_addr_control File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_addr_control.vhd Line: 62
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_bit_reverse_core.vhd
+    Info (12022): Found design unit 1: auk_dspip_bit_reverse_core-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_core.vhd Line: 111
+    Info (12023): Found entity 1: auk_dspip_bit_reverse_core File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_core.vhd Line: 89
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd
+    Info (12022): Found design unit 1: auk_dspip_bit_reverse_reverse_carry_adder-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd Line: 89
+    Info (12023): Found entity 1: auk_dspip_bit_reverse_reverse_carry_adder File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd Line: 77
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_adder_fp.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_adder_fp-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_adder_fp.vhd Line: 74
+    Info (12023): Found entity 1: auk_dspip_r22sdf_adder_fp File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_adder_fp.vhd Line: 55
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_addsub.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_addsub-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_addsub.vhd Line: 84
+    Info (12023): Found entity 1: auk_dspip_r22sdf_addsub File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_addsub.vhd Line: 63
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_bfi.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_bfi-rtl2 File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfi.vhd Line: 149
+    Info (12023): Found entity 1: auk_dspip_r22sdf_bfi File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfi.vhd Line: 97
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_bfii.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_bfii-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfii.vhd Line: 120
+    Info (12023): Found entity 1: auk_dspip_r22sdf_bfii File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfii.vhd Line: 69
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_bf_control.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_bf_control-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bf_control.vhd Line: 106
+    Info (12023): Found entity 1: auk_dspip_r22sdf_bf_control File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bf_control.vhd Line: 77
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_cma.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_cma-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma.vhd Line: 145
+    Info (12023): Found entity 1: auk_dspip_r22sdf_cma File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma.vhd Line: 100
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_cma_adder_fp-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd Line: 90
+    Info (12023): Found entity 1: auk_dspip_r22sdf_cma_adder_fp File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd Line: 66
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_cma_bfi_fp-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd Line: 128
+    Info (12023): Found entity 1: auk_dspip_r22sdf_cma_bfi_fp File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd Line: 72
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_fp.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_cma_fp-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_fp.vhd Line: 64
+    Info (12023): Found entity 1: auk_dspip_r22sdf_cma_fp File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_fp.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_core.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_core-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_core.vhd Line: 160
+    Info (12023): Found entity 1: auk_dspip_r22sdf_core File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_core.vhd Line: 116
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_counter.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_counter-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_counter.vhd Line: 105
+    Info (12023): Found entity 1: auk_dspip_r22sdf_counter File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_counter.vhd Line: 80
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_delay.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_delay-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_delay.vhd Line: 92
+    Info (12023): Found entity 1: auk_dspip_r22sdf_delay File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_delay.vhd Line: 71
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_enable_control.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_enable_control-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_enable_control.vhd Line: 90
+    Info (12023): Found entity 1: auk_dspip_r22sdf_enable_control File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_enable_control.vhd Line: 65
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_stage.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_stage-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stage.vhd Line: 182
+    Info (12023): Found entity 1: auk_dspip_r22sdf_stage File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stage.vhd Line: 131
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_stg_out_pipe-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd Line: 97
+    Info (12023): Found entity 1: auk_dspip_r22sdf_stg_out_pipe File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd Line: 62
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_pipe.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_stg_pipe-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_pipe.vhd Line: 103
+    Info (12023): Found entity 1: auk_dspip_r22sdf_stg_pipe File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_pipe.vhd Line: 59
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_top.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_top-str File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_top.vhd Line: 174
+    Info (12023): Found entity 1: auk_dspip_r22sdf_top File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_top.vhd Line: 130
+Info (12021): Found 2 design units, including 1 entities, in source file in_fft/synthesis/submodules/auk_dspip_r22sdf_twrom.vhd
+    Info (12022): Found design unit 1: auk_dspip_r22sdf_twrom-rtl File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_twrom.vhd Line: 99
+    Info (12023): Found entity 1: auk_dspip_r22sdf_twrom File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_twrom.vhd Line: 75
+Info (12021): Found 1 design units, including 1 entities, in source file in_fft/synthesis/submodules/in_fft_fft_ii_0.sv
+    Info (12023): Found entity 1: in_fft_fft_ii_0 File: D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/in_fft_fft_ii_0.sv Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file i2c_audio_config.v
-    Info (12023): Found entity 1: I2C_Audio_Config File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 1
+    Info (12023): Found entity 1: I2C_Audio_Config File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file clkgen.v
-    Info (12023): Found entity 1: clkgen File: D:/My_design/voice_coder/clkgen.v Line: 23
-Warning (10238): Verilog Module Declaration warning at I2C_Controller.v(55): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "I2C_Controller" File: D:/My_design/voice_coder/I2C_Controller.v Line: 55
+    Info (12023): Found entity 1: clkgen File: D:/intelFPGA_lite/My_design/voice_coder/clkgen.v Line: 23
+Warning (10238): Verilog Module Declaration warning at I2C_Controller.v(55): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "I2C_Controller" File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v Line: 55
 Info (12021): Found 1 design units, including 1 entities, in source file i2c_controller.v
-    Info (12023): Found entity 1: I2C_Controller File: D:/My_design/voice_coder/I2C_Controller.v Line: 42
+    Info (12023): Found entity 1: I2C_Controller File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v Line: 42
 Info (12021): Found 1 design units, including 1 entities, in source file i2s_audio.v
-    Info (12023): Found entity 1: I2S_Audio File: D:/My_design/voice_coder/I2S_Audio.v Line: 1
+    Info (12023): Found entity 1: I2S_Audio File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audio.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sin_generator.v
-    Info (12023): Found entity 1: Sin_Generator File: D:/My_design/voice_coder/Sin_Generator.v Line: 1
+    Info (12023): Found entity 1: Sin_Generator File: D:/intelFPGA_lite/My_design/voice_coder/Sin_Generator.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio_clk.v
-    Info (12023): Found entity 1: audio_clk File: D:/My_design/voice_coder/audio_clk.v Line: 8
+    Info (12023): Found entity 1: audio_clk File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file audio_clk/audio_clk_0002.v
-    Info (12023): Found entity 1: audio_clk_0002 File: D:/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 2
+    Info (12023): Found entity 1: audio_clk_0002 File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file i2s_audioin.v
-    Info (12023): Found entity 1: I2S_Audioin File: D:/My_design/voice_coder/I2S_Audioin.v Line: 1
+    Info (12023): Found entity 1: I2S_Audioin File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fft_and_ifft.v
+    Info (12023): Found entity 1: fft_and_ifft File: D:/intelFPGA_lite/My_design/voice_coder/fft_and_ifft.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mul_hanning.v
+    Info (12023): Found entity 1: mul_hanning File: D:/intelFPGA_lite/My_design/voice_coder/mul_hanning.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hanning.v
+    Info (12023): Found entity 1: hanning File: D:/intelFPGA_lite/My_design/voice_coder/hanning.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/in_fft/in_fft.v
+    Info (12023): Found entity 1: in_fft File: D:/intelFPGA_lite/My_design/voice_coder/db/ip/in_fft/in_fft.v Line: 6
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/altera_fft_dual_port_ram.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_ram.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/altera_fft_dual_port_ram.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/altera_fft_dual_port_rom.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_dual_port_rom.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/altera_fft_dual_port_rom.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/altera_fft_mult_add.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_mult_add.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/altera_fft_mult_add.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/altera_fft_single_port_rom.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/altera_fft_single_port_rom.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/altera_fft_single_port_rom.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/apn_fft_mult_can.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_can.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/apn_fft_mult_can.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/apn_fft_mult_cpx.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_cpx.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/apn_fft_mult_cpx.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/apn_fft_mult_cpx_1825.v" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/apn_fft_mult_cpx_1825.v" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/apn_fft_mult_cpx_1825.v
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_avalon_streaming_block_sink.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_sink.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_avalon_streaming_block_sink.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_avalon_streaming_block_source.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_avalon_streaming_block_source.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_avalon_streaming_block_source.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_bit_reverse_addr_control.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_addr_control.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_bit_reverse_addr_control.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_bit_reverse_core.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_core.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_bit_reverse_core.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_bit_reverse_reverse_carry_adder.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_lib_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_lib_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_lib_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_math_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_math_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_math_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_adder_fp.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_adder_fp.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_adder_fp.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_addsub.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_addsub.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_addsub.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_bf_control.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bf_control.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_bf_control.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_bfi.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfi.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_bfi.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_bfii.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_bfii.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_bfii.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_cma.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_cma.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_adder_fp.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_bfi_fp.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_fp.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_cma_fp.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_cma_fp.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_core.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_core.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_core.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_counter.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_counter.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_counter.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_delay.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_delay.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_delay.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_enable_control.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_enable_control.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_enable_control.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_lib_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_lib_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_lib_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_stage.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stage.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_stage.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_stg_out_pipe.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_stg_pipe.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_stg_pipe.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_stg_pipe.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_top.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_top.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_top.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_r22sdf_twrom.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_r22sdf_twrom.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_r22sdf_twrom.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_roundsat.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_roundsat.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_roundsat.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_dspip_text_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_dspip_text_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_dspip_text_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/auk_fft_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/auk_fft_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/auk_fft_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/counter_module.sv" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/counter_module.sv" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/counter_module.sv
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/hyper_opt_off_pkg.vhd" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/hyper_opt_OFF_pkg.vhd" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/hyper_opt_off_pkg.vhd
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/hyper_pipeline_interface.v" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/hyper_pipeline_interface.v" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/hyper_pipeline_interface.v
+Info (15248): File "d:/intelfpga_lite/my_design/voice_coder/db/ip/in_fft/submodules/in_fft_fft_ii_0.sv" is a duplicate of already analyzed file "D:/intelFPGA_lite/My_design/voice_coder/in_fft/synthesis/submodules/in_fft_fft_ii_0.sv" (same filename, same library name and same md5 digest). Skipping analysis of this file.
+Info (12021): Found 0 design units, including 0 entities, in source file db/ip/in_fft/submodules/in_fft_fft_ii_0.sv
+Warning (10236): Verilog HDL Implicit Net warning at fft_and_ifft.v(72): created implicit net for "source_valid_ifft" File: D:/intelFPGA_lite/My_design/voice_coder/fft_and_ifft.v Line: 72
+Warning (10236): Verilog HDL Implicit Net warning at fft_and_ifft.v(74): created implicit net for "source_error_ifft" File: D:/intelFPGA_lite/My_design/voice_coder/fft_and_ifft.v Line: 74
+Warning (10236): Verilog HDL Implicit Net warning at fft_and_ifft.v(75): created implicit net for "source_sop_ifft" File: D:/intelFPGA_lite/My_design/voice_coder/fft_and_ifft.v Line: 75
+Warning (10236): Verilog HDL Implicit Net warning at fft_and_ifft.v(76): created implicit net for "source_eop_ifft" File: D:/intelFPGA_lite/My_design/voice_coder/fft_and_ifft.v Line: 76
 Warning (12125): Using design file voice_coder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: voice_coder File: D:/My_design/voice_coder/voice_coder.v Line: 6
-Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex0" File: D:/My_design/voice_coder/voice_coder.v Line: 117
-Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex1" File: D:/My_design/voice_coder/voice_coder.v Line: 117
-Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex2" File: D:/My_design/voice_coder/voice_coder.v Line: 117
-Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex3" File: D:/My_design/voice_coder/voice_coder.v Line: 117
+    Info (12023): Found entity 1: voice_coder File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 6
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex0" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex1" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex2" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex3" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex4" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at voice_coder.v(117): created implicit net for "hex5" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
 Info (12127): Elaborating entity "voice_coder" for the top level hierarchy
-Warning (10034): Output port "LEDR[8..4]" at voice_coder.v(21) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 21
-Warning (10034): Output port "HEX0" at voice_coder.v(24) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 24
-Warning (10034): Output port "HEX1" at voice_coder.v(25) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 25
-Warning (10034): Output port "HEX2" at voice_coder.v(26) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 26
-Warning (10034): Output port "HEX3" at voice_coder.v(27) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 27
-Warning (10034): Output port "HEX4" at voice_coder.v(28) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 28
-Warning (10034): Output port "HEX5" at voice_coder.v(29) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 29
-Warning (10034): Output port "DRAM_ADDR" at voice_coder.v(32) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 32
-Warning (10034): Output port "DRAM_BA" at voice_coder.v(33) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 33
-Warning (10034): Output port "VGA_B" at voice_coder.v(53) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 53
-Warning (10034): Output port "VGA_G" at voice_coder.v(55) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 55
-Warning (10034): Output port "VGA_R" at voice_coder.v(57) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 57
-Warning (10034): Output port "DRAM_CAS_N" at voice_coder.v(34) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 34
-Warning (10034): Output port "DRAM_CKE" at voice_coder.v(35) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 35
-Warning (10034): Output port "DRAM_CLK" at voice_coder.v(36) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 36
-Warning (10034): Output port "DRAM_CS_N" at voice_coder.v(37) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 37
-Warning (10034): Output port "DRAM_LDQM" at voice_coder.v(39) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 39
-Warning (10034): Output port "DRAM_RAS_N" at voice_coder.v(40) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 40
-Warning (10034): Output port "DRAM_UDQM" at voice_coder.v(41) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 41
-Warning (10034): Output port "DRAM_WE_N" at voice_coder.v(42) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 42
-Warning (10034): Output port "TD_RESET_N" at voice_coder.v(48) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 48
-Warning (10034): Output port "VGA_BLANK_N" at voice_coder.v(52) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 52
-Warning (10034): Output port "VGA_CLK" at voice_coder.v(54) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 54
-Warning (10034): Output port "VGA_HS" at voice_coder.v(56) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 56
-Warning (10034): Output port "VGA_SYNC_N" at voice_coder.v(58) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 58
-Warning (10034): Output port "VGA_VS" at voice_coder.v(59) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 59
-Warning (10034): Output port "ADC_CONVST" at voice_coder.v(76) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 76
-Warning (10034): Output port "ADC_DIN" at voice_coder.v(77) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 77
-Warning (10034): Output port "ADC_SCLK" at voice_coder.v(79) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 79
-Warning (10034): Output port "IRDA_TXD" at voice_coder.v(88) has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 88
-Info (12128): Elaborating entity "audio_clk" for hierarchy "audio_clk:u1" File: D:/My_design/voice_coder/voice_coder.v Line: 107
-Info (12128): Elaborating entity "audio_clk_0002" for hierarchy "audio_clk:u1|audio_clk_0002:audio_clk_inst" File: D:/My_design/voice_coder/audio_clk.v Line: 20
-Info (12128): Elaborating entity "altera_pll" for hierarchy "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" File: D:/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
+Warning (10034): Output port "LEDR[8..7]" at voice_coder.v(21) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+Warning (10034): Output port "LEDR[5..4]" at voice_coder.v(21) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+Warning (10034): Output port "HEX0" at voice_coder.v(24) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+Warning (10034): Output port "HEX1" at voice_coder.v(25) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+Warning (10034): Output port "HEX2" at voice_coder.v(26) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+Warning (10034): Output port "HEX3" at voice_coder.v(27) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+Warning (10034): Output port "HEX4" at voice_coder.v(28) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+Warning (10034): Output port "HEX5" at voice_coder.v(29) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+Warning (10034): Output port "DRAM_ADDR" at voice_coder.v(32) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+Warning (10034): Output port "DRAM_BA" at voice_coder.v(33) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 33
+Warning (10034): Output port "VGA_B" at voice_coder.v(53) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+Warning (10034): Output port "VGA_G" at voice_coder.v(55) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+Warning (10034): Output port "VGA_R" at voice_coder.v(57) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+Warning (10034): Output port "DRAM_CAS_N" at voice_coder.v(34) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 34
+Warning (10034): Output port "DRAM_CKE" at voice_coder.v(35) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 35
+Warning (10034): Output port "DRAM_CLK" at voice_coder.v(36) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 36
+Warning (10034): Output port "DRAM_CS_N" at voice_coder.v(37) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 37
+Warning (10034): Output port "DRAM_LDQM" at voice_coder.v(39) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 39
+Warning (10034): Output port "DRAM_RAS_N" at voice_coder.v(40) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 40
+Warning (10034): Output port "DRAM_UDQM" at voice_coder.v(41) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 41
+Warning (10034): Output port "DRAM_WE_N" at voice_coder.v(42) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 42
+Warning (10034): Output port "TD_RESET_N" at voice_coder.v(48) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 48
+Warning (10034): Output port "VGA_BLANK_N" at voice_coder.v(52) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 52
+Warning (10034): Output port "VGA_CLK" at voice_coder.v(54) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 54
+Warning (10034): Output port "VGA_HS" at voice_coder.v(56) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 56
+Warning (10034): Output port "VGA_SYNC_N" at voice_coder.v(58) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 58
+Warning (10034): Output port "VGA_VS" at voice_coder.v(59) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 59
+Warning (10034): Output port "ADC_CONVST" at voice_coder.v(76) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 76
+Warning (10034): Output port "ADC_DIN" at voice_coder.v(77) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 77
+Warning (10034): Output port "ADC_SCLK" at voice_coder.v(79) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 79
+Warning (10034): Output port "IRDA_TXD" at voice_coder.v(88) has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 88
+Info (12128): Elaborating entity "audio_clk" for hierarchy "audio_clk:u1" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 107
+Info (12128): Elaborating entity "audio_clk_0002" for hierarchy "audio_clk:u1|audio_clk_0002:audio_clk_inst" File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk.v Line: 20
+Info (12128): Elaborating entity "altera_pll" for hierarchy "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" File: D:/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
-Info (12133): Instantiated megafunction "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" with the following parameter: File: D:/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
+Info (12133): Instantiated megafunction "audio_clk:u1|audio_clk_0002:audio_clk_inst|altera_pll:altera_pll_i" with the following parameter: File: D:/intelFPGA_lite/My_design/voice_coder/audio_clk/audio_clk_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "true"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -879,221 +1119,225 @@ Info (12133): Instantiated megafunction "audio_clk:u1|audio_clk_0002:audio_clk_i
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "clkgen" for hierarchy "clkgen:my_i2c_clk" File: D:/My_design/voice_coder/voice_coder.v Line: 110
-Info (12128): Elaborating entity "I2C_Audio_Config" for hierarchy "I2C_Audio_Config:myconfig" File: D:/My_design/voice_coder/voice_coder.v Line: 112
-Warning (10030): Net "audio_reg.data_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 24
-Warning (10030): Net "audio_reg.waddr_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 24
-Warning (10030): Net "audio_cmd.data_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 25
-Warning (10030): Net "audio_cmd.waddr_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 25
-Warning (10030): Net "audio_reg.we_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 24
-Warning (10030): Net "audio_cmd.we_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 25
-Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_Audio_Config:myconfig|I2C_Controller:u0" File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 68
-Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(78): truncated value with size 32 to match size of target (1) File: D:/My_design/voice_coder/I2C_Controller.v Line: 78
-Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(77): truncated value with size 32 to match size of target (1) File: D:/My_design/voice_coder/I2C_Controller.v Line: 77
-Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(89): truncated value with size 32 to match size of target (6) File: D:/My_design/voice_coder/I2C_Controller.v Line: 89
-Info (12128): Elaborating entity "I2S_Audio" for hierarchy "I2S_Audio:myaudio" File: D:/My_design/voice_coder/voice_coder.v Line: 114
-Info (12128): Elaborating entity "I2S_Audioin" for hierarchy "I2S_Audioin:myaudioin" File: D:/My_design/voice_coder/voice_coder.v Line: 117
-Warning (10240): Verilog HDL Always Construct warning at I2S_Audioin.v(93): inferring latch(es) for variable "audiodata", which holds its previous value in one or more paths through the always construct File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[0]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[1]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[2]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[3]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[4]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[5]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[6]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[7]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[8]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[9]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[10]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[11]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[12]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[13]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[14]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
-Info (10041): Inferred latch for "audiodata[15]" at I2S_Audioin.v(93) File: D:/My_design/voice_coder/I2S_Audioin.v Line: 93
+Info (12128): Elaborating entity "clkgen" for hierarchy "clkgen:my_i2c_clk" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 110
+Info (12128): Elaborating entity "I2C_Audio_Config" for hierarchy "I2C_Audio_Config:myconfig" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 112
+Warning (10030): Net "audio_reg.data_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 24
+Warning (10030): Net "audio_reg.waddr_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 24
+Warning (10030): Net "audio_cmd.data_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 25
+Warning (10030): Net "audio_cmd.waddr_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 25
+Warning (10030): Net "audio_reg.we_a" at I2C_Audio_Config.v(24) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 24
+Warning (10030): Net "audio_cmd.we_a" at I2C_Audio_Config.v(25) has no driver or initial value, using a default initial value '0' File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 25
+Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_Audio_Config:myconfig|I2C_Controller:u0" File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 68
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(78): truncated value with size 32 to match size of target (1) File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v Line: 78
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(77): truncated value with size 32 to match size of target (1) File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v Line: 77
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(89): truncated value with size 32 to match size of target (6) File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Controller.v Line: 89
+Info (12128): Elaborating entity "I2S_Audio" for hierarchy "I2S_Audio:myaudio" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 114
+Info (12128): Elaborating entity "I2S_Audioin" for hierarchy "I2S_Audioin:myaudioin" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 117
+Warning (10240): Verilog HDL Always Construct warning at I2S_Audioin.v(97): inferring latch(es) for variable "audiodata", which holds its previous value in one or more paths through the always construct File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[0]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[1]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[2]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[3]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[4]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[5]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[6]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[7]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[8]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[9]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[10]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[11]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[12]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[13]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[14]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
+Info (10041): Inferred latch for "audiodata[15]" at I2S_Audioin.v(97) File: D:/intelFPGA_lite/My_design/voice_coder/I2S_Audioin.v Line: 97
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276004): RAM logic "I2C_Audio_Config:myconfig|audio_reg" is uninferred due to inappropriate RAM size File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 24
-    Info (276004): RAM logic "I2C_Audio_Config:myconfig|audio_cmd" is uninferred due to inappropriate RAM size File: D:/My_design/voice_coder/I2C_Audio_Config.v Line: 25
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/My_design/voice_coder/db/voice_coder.ram0_I2C_Audio_Config_f19a1d43.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/My_design/voice_coder/db/voice_coder.ram1_I2C_Audio_Config_f19a1d43.hdl.mif" contains "don't care" values -- overwriting them with 0s
+    Info (276004): RAM logic "I2C_Audio_Config:myconfig|audio_reg" is uninferred due to inappropriate RAM size File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 24
+    Info (276004): RAM logic "I2C_Audio_Config:myconfig|audio_cmd" is uninferred due to inappropriate RAM size File: D:/intelFPGA_lite/My_design/voice_coder/I2C_Audio_Config.v Line: 25
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/intelFPGA_lite/My_design/voice_coder/db/voice_coder.ram0_I2C_Audio_Config_f19a1d43.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/intelFPGA_lite/My_design/voice_coder/db/voice_coder.ram1_I2C_Audio_Config_f19a1d43.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12189): Intel FPGA IP Evaluation Mode (Simulation-Only) feature is turned on for all cores in the design
+    Warning (12191): Some cores in this design do not support the Intel FPGA IP Evaluation Mode feature
+        Warning (12192): "FFT/IFFT" does not support the Intel FPGA IP Evaluation Mode feature
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_ADCLRCK" and its non-tri-state driver. File: D:/My_design/voice_coder/voice_coder.v Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver. File: D:/My_design/voice_coder/voice_coder.v Line: 64
-    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_DACLRCK" and its non-tri-state driver. File: D:/My_design/voice_coder/voice_coder.v Line: 66
+    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_ADCLRCK" and its non-tri-state driver. File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver. File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 64
+    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_DACLRCK" and its non-tri-state driver. File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 66
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 38
-    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 70
-    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 71
-    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 72
-    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: D:/My_design/voice_coder/voice_coder.v Line: 73
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 38
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 70
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 71
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 72
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 73
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "AUD_ADCLRCK~synth" File: D:/My_design/voice_coder/voice_coder.v Line: 63
-    Warning (13010): Node "AUD_BCLK~synth" File: D:/My_design/voice_coder/voice_coder.v Line: 64
-    Warning (13010): Node "AUD_DACLRCK~synth" File: D:/My_design/voice_coder/voice_coder.v Line: 66
+    Warning (13010): Node "AUD_ADCLRCK~synth" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 63
+    Warning (13010): Node "AUD_BCLK~synth" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 64
+    Warning (13010): Node "AUD_DACLRCK~synth" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 66
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 21
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 21
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 21
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 21
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 21
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 24
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 25
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 26
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 27
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 28
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 29
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 32
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 33
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 33
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 34
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 35
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 36
-    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 37
-    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 39
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 40
-    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 41
-    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 42
-    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 48
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 52
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 53
-    Warning (13410): Pin "VGA_CLK" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 54
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 55
-    Warning (13410): Pin "VGA_HS" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 56
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 57
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 58
-    Warning (13410): Pin "VGA_VS" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 59
-    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 76
-    Warning (13410): Pin "ADC_DIN" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 77
-    Warning (13410): Pin "ADC_SCLK" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 79
-    Warning (13410): Pin "IRDA_TXD" is stuck at GND File: D:/My_design/voice_coder/voice_coder.v Line: 88
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 21
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 24
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 25
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 26
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 27
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 28
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 29
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 32
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 33
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 33
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 34
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 35
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 36
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 37
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 39
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 40
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 41
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 42
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 48
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 52
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 53
+    Warning (13410): Pin "VGA_CLK" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 54
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 55
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 56
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 57
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 58
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 59
+    Warning (13410): Pin "ADC_CONVST" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 76
+    Warning (13410): Pin "ADC_DIN" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 77
+    Warning (13410): Pin "ADC_SCLK" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 79
+    Warning (13410): Pin "IRDA_TXD" is stuck at GND File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 88
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 21 assignments for entity "in_fft" -- entity does not exist in design
+Warning (20013): Ignored 33 assignments for entity "in_fft_fft_ii_0" -- entity does not exist in design
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 29 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK2_50" File: D:/My_design/voice_coder/voice_coder.v Line: 9
-    Warning (15610): No output dependent on input pin "CLOCK3_50" File: D:/My_design/voice_coder/voice_coder.v Line: 10
-    Warning (15610): No output dependent on input pin "CLOCK4_50" File: D:/My_design/voice_coder/voice_coder.v Line: 11
-    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/My_design/voice_coder/voice_coder.v Line: 15
-    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/My_design/voice_coder/voice_coder.v Line: 15
-    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/My_design/voice_coder/voice_coder.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[0]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[1]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[2]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[3]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[7]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[8]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "SW[9]" File: D:/My_design/voice_coder/voice_coder.v Line: 18
-    Warning (15610): No output dependent on input pin "TD_CLK27" File: D:/My_design/voice_coder/voice_coder.v Line: 45
-    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: D:/My_design/voice_coder/voice_coder.v Line: 46
-    Warning (15610): No output dependent on input pin "TD_HS" File: D:/My_design/voice_coder/voice_coder.v Line: 47
-    Warning (15610): No output dependent on input pin "TD_VS" File: D:/My_design/voice_coder/voice_coder.v Line: 49
-    Warning (15610): No output dependent on input pin "ADC_DOUT" File: D:/My_design/voice_coder/voice_coder.v Line: 78
-    Warning (15610): No output dependent on input pin "IRDA_RXD" File: D:/My_design/voice_coder/voice_coder.v Line: 86
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 15
+    Warning (15610): No output dependent on input pin "SW[0]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[1]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[2]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[3]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[7]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[9]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 18
+    Warning (15610): No output dependent on input pin "TD_CLK27" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 45
+    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 46
+    Warning (15610): No output dependent on input pin "TD_HS" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 47
+    Warning (15610): No output dependent on input pin "TD_VS" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 49
+    Warning (15610): No output dependent on input pin "ADC_DOUT" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 78
+    Warning (15610): No output dependent on input pin "IRDA_RXD" File: D:/intelFPGA_lite/My_design/voice_coder/voice_coder.v Line: 86
 Info (21057): Implemented 367 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 32 input pins
     Info (21059): Implemented 112 output pins
     Info (21060): Implemented 24 bidirectional pins
     Info (21061): Implemented 198 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 213 warnings
-    Info: Peak virtual memory: 4855 megabytes
-    Info: Processing ended: Sun Dec 16 23:31:39 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 224 warnings
+    Info: Peak virtual memory: 4899 megabytes
+    Info: Processing ended: Thu Dec 20 20:33:08 2018
+    Info: Elapsed time: 00:00:53
+    Info: Total CPU time (on all processors): 00:01:31
 
 

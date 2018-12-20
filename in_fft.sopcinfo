@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="in_fft" kind="in_fft" version="1.0" fabric="QSYS">
  <!-- Format version 17.1 590 (Future versions may contain additional information.) -->
- <!-- 2018.12.20.00:26:04 -->
+ <!-- 2018.12.20.20:32:50 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1545236764</value>
+  <value>1545309170</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -197,7 +197,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="out_order">
    <type>java.lang.String</type>
-   <value>Natural</value>
+   <value>Digit Reverse</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -261,7 +261,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="THROUGHPUT_LATENCY">
    <type>int</type>
-   <value>1024</value>
+   <value>512</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>

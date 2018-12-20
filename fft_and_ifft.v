@@ -1,13 +1,14 @@
 module fft_and_ifft(
-    input clk;
+    input clk,
     //input [15:0] audio_in;
-    input sink_sop_fft;
-    input sink_eop_fft;
-    input [15:0] sink_real_fft;
-	output wire sink_ready_fft;
-	output wire source_sop_fft;
-	output wire source_sop_fft;
-	output wire [15:0] source_real_ifft;
+    //input sink_sop_fft,
+    //input sink_eop_fft,
+    input [15:0] sink_real_fft,
+	output wire sink_ready_fft,
+	output wire source_eop_ifft,
+	output wire source_sop_ifft,
+	output wire [15:0] source_real_ifft,
+	output wire source_valid_ifft;
 );
 
 	
@@ -17,7 +18,10 @@ module fft_and_ifft(
 	wire [15:0] source_imag_fft;
 	wire sink_ready_ifft;
 	wire source_ready_ifft;
-	wire [15:0] source_imag_fft;
+	wire [15:0] source_imag_ifft;
+	wire source_sop_fft;
+	wire source_eop_fft;
+	wire source_error_ifft;
 
 	reg [9:0] cnt;
 	reg reach512;
@@ -57,7 +61,7 @@ module fft_and_ifft(
 	);
 
 
-in_fft_fft_ii_0 my_ifft (
+	in_fft my_ifft (
 		.clk          (clk),          //    clk.clk
 		.reset_n      (1'b1),      //    rst.reset_n
 		.sink_valid   (1'b1),   //   sink.sink_valid
@@ -65,7 +69,7 @@ in_fft_fft_ii_0 my_ifft (
 		.sink_error   (1'b0),   //       .sink_error
 		.sink_sop     (source_sop_fft),  //       .sink_sop
 		.sink_eop     (source_eop_fft),     //       .sink_eop
-		.sink_real    (source_eop_fft),    //       .sink_real
+		.sink_real    (source_real_fft),    //       .sink_real
 		.sink_imag    (source_imag_fft),    //       .sink_imag
 		.fftpts_in    (512),    //       .fftpts_in
 		.inverse      (1'b1),      //       .inverse

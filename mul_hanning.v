@@ -5,7 +5,7 @@ module mul_hanning(clk, data_in, data_out);
 
     reg [31:0] temp; //为了方便浮点处理产生的中间变量
 
-    wire [9:0] index;
+    reg [9:0] index;
     wire [15:0] hann_out;
 
     hanning my_hann(.address(index), .clock(clk), .q(hann_out));
@@ -23,4 +23,4 @@ module mul_hanning(clk, data_in, data_out);
         temp <= data_in * hann_out;
         data_out <= (temp >> 16);
     end
-endmodule;
+endmodule
