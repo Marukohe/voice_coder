@@ -96,12 +96,29 @@ module voice_coder(
 wire clk_i2c;
 wire reset;
 wire [15:0] audiodata;
-wire [15:0] audiofifoin;
-wire [15:0] audiofifoout;
+//wire [15:0] audiofifoin;
+//wire [15:0] audiofifoout;
+/*
 wire rdemptyq2;
 wire wrfullq2;
 wire rdemptyq1;
 wire wrfullq1;
+*/
+wire [9:0] rdaddr;    //输入队列读指针
+wire [9:0] wraddr;    //输入队列写指针
+wire rden;            //输入读使能
+wire wren;            //输入写使能
+wire [15:0] audioout;  //输入队列的输出数据
+wire [15:0] hanout;    //乘上了海明窗之后的输出
+wire iff_eop;          //ifft的输出结束使能
+wire iff_sop;          //ifft的输出开始信号
+wire fft_ready;        //fft开始输入信号
+wire [15:0] ifftout;   //ifft输出
+wire [9:0] ifftread;   //输出队列读指针
+wire [9:0] ifftwrite;  //输出队列写指针
+wire [15:0] finaldata; //输出队列的输出数据
+wire outqren;          //输出队列的读使能
+wire outqwen;          //输出队列的写使能
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -115,12 +132,31 @@ clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, audiofifiout);
+I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, hanout);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
 I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, hex0,hex1,hex2,hex3,LEDR[3],hex4,hex5);
 
-FIFO inq2(audiodata,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoin,rdemptyq2,wrfullq2);
-FIFO inq1(audiofifoin,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoout,rdemptyq1,wrfullq1);
+//FIFO inq2(audiodata,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoin,rdemptyq2,wrfullq2);
+//FIFO inq1(audiofifoin,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoout,rdemptyq1,wrfullq1);
+//====================================
+//输入缓冲队列
+//====================================
+ram2 inq1(audiodata,rdaddr,AUD_ADCLRCK,rden,wraddr,AUD_ADCLRCK,wren,audioout);
+
+//====================================
+//乘海明窗
+//====================================
+mul_hanning hanning(AUD_ADCLRCK,audioout,hanout);
+
+//=====================================
+//fft和ifft
+//=====================================
+fft_and_ifft myfft(CLOCK_50,hanout,fftready,iff_sop,iff_eop,ifftout,outqwen);
+
+//=====================================
+//输出缓冲队列
+//=====================================
+ram2 outq(ifftout,ifftread,AUD_ADCLRCK,outqren,ifftwriten,CLOCK_50,outqwen,finaldata);
 
 endmodule
