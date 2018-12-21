@@ -1,5 +1,5 @@
 IP Upgrade report for voice_coder
-Thu Dec 20 20:28:39 2018
+Fri Dec 21 20:23:15 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -34,7 +34,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                         ;
 +------------------------------+---------------------------------------------+
-; IP Components Upgrade Status ; Failed - Thu Dec 20 20:28:39 2018           ;
+; IP Components Upgrade Status ; Failed - Fri Dec 21 20:23:15 2018           ;
 ; Quartus Prime Version        ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                ; voice_coder                                 ;
 ; Top-level Entity Name        ; voice_coder                                 ;
@@ -47,9 +47,9 @@ refer to the applicable agreement for further details.
 +---------------------+
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4904 megabytes
-    Info: Processing ended: Thu Dec 20 20:28:39 2018
+    Info: Peak virtual memory: 4905 megabytes
+    Info: Processing ended: Fri Dec 21 20:23:15 2018
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:20
 
 
