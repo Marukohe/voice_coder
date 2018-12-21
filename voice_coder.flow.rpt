@@ -1,5 +1,5 @@
 Flow report for voice_coder
-Thu Dec 20 20:57:42 2018
+Fri Dec 21 17:40:30 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,24 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Flow Summary                                                              ;
-+-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Thu Dec 20 20:57:42 2018       ;
-; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name               ; voice_coder                                 ;
-; Top-level Entity Name       ; voice_coder                                 ;
-; Family                      ; Cyclone V                                   ;
-; Device                      ; 5CSXFC6D6F31C6                              ;
-; Timing Models               ; Final                                       ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Fri Dec 21 17:40:21 2018       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; voice_coder                                 ;
+; Top-level Entity Name           ; voice_coder                                 ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSXFC6D6F31C6                              ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 182 / 41,910 ( < 1 % )                      ;
+; Total registers                 ; 270                                         ;
+; Total pins                      ; 168 / 499 ( 34 % )                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                       ;
+; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
+; Total HSSI RX PCSs              ; 0 / 9 ( 0 % )                               ;
+; Total HSSI PMA RX Deserializers ; 0 / 9 ( 0 % )                               ;
+; Total HSSI TX PCSs              ; 0 / 9 ( 0 % )                               ;
+; Total HSSI PMA TX Serializers   ; 0 / 9 ( 0 % )                               ;
+; Total PLLs                      ; 1 / 15 ( 7 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -62,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/20/2018 20:56:24 ;
+; Start date & time ; 12/21/2018 17:38:02 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; voice_coder         ;
 +-------------------+---------------------+
@@ -73,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                                    ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+----------------------------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 272903328235831.154531058309296                          ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 272903328235831.154538508203496                          ; --            ; --              ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                       ; --            ; --              ; --         ;
 ; MESSAGE_DISABLE                     ; 270007                                                   ; --            ; in_fft_fft_ii_0 ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                        ; --            ; --              ; --         ;
@@ -100,29 +105,38 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------+---------------+-----------------+------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                          ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:01:18     ; 1.0                     ; 5150 MB             ; 00:01:57                           ;
-; Total                  ; 00:01:18     ; --                      ; --                  ; 00:01:57                           ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:01:24     ; 1.0                     ; 5198 MB             ; 00:01:54                           ;
+; Fitter                    ; 00:00:41     ; 1.0                     ; 6732 MB             ; 00:01:21                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4866 MB             ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.1                     ; 5208 MB             ; 00:00:09                           ;
+; Total                     ; 00:02:20     ; --                      ; --                  ; 00:03:31                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                      ;
-+------------------------+------------------+------------+------------+----------------+
-; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; DESKTOP-BV7TKF0  ; Windows 10 ; 10.0       ; x86_64         ;
-+------------------------+------------------+------------+------------+----------------+
++-----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                         ;
++---------------------------+------------------+------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++---------------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis      ; DESKTOP-BV7TKF0  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; DESKTOP-BV7TKF0  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; DESKTOP-BV7TKF0  ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-BV7TKF0  ; Windows 10 ; 10.0       ; x86_64         ;
++---------------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off voice_coder -c voice_coder --analysis_and_elaboration
+quartus_map --read_settings_files=on --write_settings_files=off voice_coder -c voice_coder
+quartus_fit --read_settings_files=off --write_settings_files=off voice_coder -c voice_coder
+quartus_asm --read_settings_files=off --write_settings_files=off voice_coder -c voice_coder
+quartus_sta voice_coder -c voice_coder
 
 
 

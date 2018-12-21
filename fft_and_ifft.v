@@ -8,11 +8,11 @@ module fft_and_ifft(
 	output wire source_eop_ifft,
 	output wire source_sop_ifft,
 	output wire [15:0] source_real_ifft,
-	output wire source_valid_fft
+	output wire source_valid_ifft
 );
 
 	
-	
+	wire source_valid_fft;
 	wire source_error_fft;
 	wire [15:0] source_real_fft;
 	wire [15:0] source_imag_fft;
@@ -21,8 +21,9 @@ module fft_and_ifft(
 	wire [15:0] source_imag_ifft;
 	wire source_sop_fft;
 	wire source_eop_fft;
-	wire source_valid_ifft;
 	wire source_error_ifft;
+	wire [15:0] sink_real_ifft;
+	wire [15:0] sink_imag_ifft;
 
 	reg [9:0] cnt;
 	reg reach512;
@@ -33,10 +34,9 @@ module fft_and_ifft(
 	end
 
 	always @ (posedge clk) 
-	begin
-		cnt <= cnt + 1;
-		if(cnt == 512) begin reach512 <= 1; cnt <= 0; end
-		else reach512 <= 0;
+	begin		
+		if(cnt == 511) begin reach512 <= 1; cnt <= 0; end
+		else begin cnt <= cnt + 1; reach512 <= 0; end
 	end
 
     in_fft my_fft (
@@ -59,6 +59,14 @@ module fft_and_ifft(
 	.source_real  (source_real_fft),  //       .source_real
 	.source_imag  (source_imag_fft),  //       .source_imag
 	.fftpts_out   (512)    //       .fftpts_out
+	);
+
+	freq_change my_fc(
+		//input clk,
+		.source_real_fft(source_real_fft),
+		.source_imag_fft(source_imag_fft),
+		.new_real(sink_real_ifft),
+		.new_imag(sink_imag_ifft)
 	);
 
 

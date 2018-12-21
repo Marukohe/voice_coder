@@ -104,24 +104,39 @@ wire wrfullq2;
 wire rdemptyq1;
 wire wrfullq1;
 */
-wire [9:0] rdaddr;    //输入队列读指针
-wire [9:0] wraddr;    //输入队列写指针
-wire rden;            //输入读使能
-wire wren;            //输入写使能
+reg [9:0] rdaddr;    //输入队列读指针
+reg [9:0] wraddr;    //输入队列写指针
+reg rden;            //输入读使能
+reg wren;            //输入写使能
+reg flagread;
 wire [15:0] audioout;  //输入队列的输出数据
 wire [15:0] hanout;    //乘上了海明窗之后的输出
 wire iff_eop;          //ifft的输出结束使能
 wire iff_sop;          //ifft的输出开始信号
 wire fft_ready;        //fft开始输入信号
 wire [15:0] ifftout;   //ifft输出
-wire [9:0] ifftread;   //输出队列读指针
-wire [9:0] ifftwrite;  //输出队列写指针
+reg [9:0] outqreadaddr;   //输出队列读指针
+reg [9:0] outqwriteaddr;  //输出队列写指针
 wire [15:0] finaldata; //输出队列的输出数据
+wire [15:0] outputdata;
 wire outqren;          //输出队列的读使能
 wire outqwen;          //输出队列的写使能
+//wire CLK96k;      //96kHz 时钟
+
+reg [9:0] cntwrite;   //记录输入队列的写地址,每次256开始读使能有效
+reg [9:0] cntread;     //记录输入队列读地址，每次512结束，读使能失效
+reg [15:0] outq [0:1023];
+reg [9:0] cntoutread;  //记录输入队列地写地址
 //=======================================================
 //  Structural coding
 //=======================================================
+
+initial
+begin
+    cntwrite = 10'b1100000001;
+    outqreadaddr = 10'b10000001;
+end 
+
 
 assign reset = ~KEY[0];
 
@@ -132,22 +147,68 @@ clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, hanout);
+I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, outq[outqreadaddr]);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
 I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, hex0,hex1,hex2,hex3,LEDR[3],hex4,hex5);
 
 //FIFO inq2(audiodata,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoin,rdemptyq2,wrfullq2);
 //FIFO inq1(audiofifoin,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoout,rdemptyq1,wrfullq1);
+
 //====================================
 //输入缓冲队列
+//读时钟50MHz,写时钟48kHz,写256开始读
 //====================================
-ram2 inq1(audiodata,rdaddr,AUD_ADCLRCK,rden,wraddr,AUD_ADCLRCK,wren,audioout);
 
+ram2 inq1(audiodata,rdaddr,CLOCK_50,rden,wraddr,AUD_ADCLRCK,wren,audioout);
+
+//==================
+//输入队列地址使能控制
+//==================
+always @(posedge AUD_ADCLRCK)
+begin
+  if(wren)
+  begin
+	if(cntwrite==8'd255)
+	begin
+		cntwrite <= 1'b0;
+		//rden <= 1'b1;
+	end
+	else
+	begin
+		wraddr <= wraddr+1'b1;
+		cntwrite <= cntwrite+1'b1;
+	end
+  end
+end
+
+always @(posedge CLOCK_50)
+begin
+	if(cntwrite==8'd255 && flagread==1)
+	begin
+	  rden <=1'b1;
+	  if(cntread>=9'd511)
+	  begin
+		rdaddr <= rdaddr - 9'd256;
+		cntread <= 0;
+		rden <= 0;
+		flagread<=1'b0;
+	  end
+	  else
+	  begin
+		rdaddr <= rdaddr+1'b1;
+		cntread <= cntread+1'b1;
+	  end
+	end
+	if(cntwrite == 8'd12)
+	begin
+		flagread<=1'b1;
+	end
+end
 //====================================
 //乘海明窗
 //====================================
-mul_hanning hanning(AUD_ADCLRCK,audioout,hanout);
+mul_hanning hanning(CLOCK_50,audioout,hanout);
 
 //=====================================
 //fft和ifft
@@ -157,6 +218,38 @@ fft_and_ifft myfft(CLOCK_50,hanout,fftready,iff_sop,iff_eop,ifftout,outqwen);
 //=====================================
 //输出缓冲队列
 //=====================================
-ram2 outq(ifftout,ifftread,AUD_ADCLRCK,outqren,ifftwriten,CLOCK_50,outqwen,finaldata);
+//ram2 outq(ifftout,ifftread,AUD_ADCLRCK,1'b1,ifftwrite,CLOCK_50,outqwen,finaldata);
+
+always @(posedge CLOCK_50)
+begin
+  if(outqwen)
+  begin
+	if(cntoutread>=8'd255)
+	begin
+		if(cntoutread>=9'd511)
+		begin
+			cntoutread<=0;
+			outqwriteaddr<=outqwriteaddr-9'd256;
+		end
+		else
+		begin
+			outq[outqwriteaddr] <= ifftout;
+			cntoutread <= cntoutread+1'b1;
+		end
+	end
+	else
+	begin
+		outq[outqwriteaddr] <= outq[outqwriteaddr] + ifftout;
+		cntoutread <= cntoutread+1'b1;
+	end
+  end
+end
+
+
+always @(posedge AUD_ADCLRCK)
+begin
+  outqreadaddr <= outqreadaddr+1'b1;
+end
+
 
 endmodule

@@ -5,6 +5,8 @@ JedecChain;
 
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
+	P ActionCode(Cfg)
+		Device PartName(5CSXFC6D6F31) Path("D:/My_design/voice_coder/") File("voice_coder.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

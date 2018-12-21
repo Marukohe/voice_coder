@@ -11,9 +11,11 @@ module I2S_Audioin(AUD_XCK,
 				 led0,
 				 hex4,
 				 hex5
+				 //AUD_96CLK
 				 );
 input AUD_XCK;
 input reset_n;
+//output reg AUD_96CLK;
 output reg AUD_BCK;
 //output reg AUD_BCK;
 input AUD_DATA;
@@ -38,6 +40,7 @@ reg [7:0] bck_counter;
 reg [7:0] lr_counter;
 wire [7:0] bitaddr;
 
+//reg [7:0] lr_counter96;
 //reg AUD_BCK;
 ////
 //always @(*)
@@ -67,6 +70,7 @@ begin
 end
 
 //generate LRCK, 48kHz, at negedge of BCK
+
 always @ (negedge AUD_BCK or negedge reset_n)
 begin
        if(!reset_n)
@@ -88,6 +92,7 @@ begin
 		 
 end
 
+
 //send data, input data avaible at posedge of lrclk, prepared at the posedge of bck
 
 assign  bitaddr  = 8'd15- lr_counter;
@@ -100,7 +105,7 @@ end
 always @(posedge AUD_DATA)
 begin
 	datacount<=8'hac;
-end		
+end
 		
 always @(*)
 begin

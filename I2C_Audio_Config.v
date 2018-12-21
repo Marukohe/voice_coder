@@ -27,19 +27,18 @@ module I2C_Audio_Config ( clk_i2c,
 	
 initial
 begin
-/*
    audio_reg[0]= 7'h0f; audio_cmd[0]=9'h0;  //reset
 	audio_reg[1]= 7'h06; audio_cmd[1]=9'h0;  //Disable Power Down
 	audio_reg[2]= 7'h08; audio_cmd[2]=9'h2;  //Sampling Control
-	audio_reg[3]= 7'h01; audio_cmd[3]=9'h97;  //right line in
-	audio_reg[4]= 7'h00; audio_cmd[4]=9'h97; //left line in
+	audio_reg[3]= 7'h01; audio_cmd[3]=9'h1A;  //right line in
+	audio_reg[4]= 7'h00; audio_cmd[4]=9'h1A; //left line in
 	audio_reg[5]= 7'h07; audio_cmd[5]=9'h1;  //I2S format
 	audio_reg[6]= 7'h09; audio_cmd[6]=9'h1;  //Active
-	audio_reg[7]= 7'h04; audio_cmd[7]=9'h17; //Analog path
+	audio_reg[7]= 7'h04; audio_cmd[7]=9'h14; //Analog path
 	audio_reg[8]= 7'h05; audio_cmd[8]=9'h06;  //Digital path
 	audio_reg[9]= 7'h02; audio_cmd[9]=9'h79; //Left Volume
 	audio_reg[10]= 7'h03; audio_cmd[10]=9'h79; //Right Volume
-*/	
+/*
 	audio_reg[0]= 7'h0f; audio_cmd[0]=9'h0;  //reset
 	audio_reg[1]= 7'h06; audio_cmd[1]=9'h0;  //Disable Power Down
 	audio_reg[2]= 7'h08; audio_cmd[2]=9'h2;  //Sampling Control
@@ -47,10 +46,11 @@ begin
 	audio_reg[4]= 7'h00; audio_cmd[4]=9'h1A; //left line in
 	audio_reg[5]= 7'h07; audio_cmd[5]=9'h1;  //I2S format
 	audio_reg[6]= 7'h09; audio_cmd[6]=9'h1;  //Active
-	audio_reg[7]= 7'h04; audio_cmd[7]=9'hF8; //Analog path
+	audio_reg[7]= 7'h04; audio_cmd[7]=9'hF8; //F8  Analog path
 	audio_reg[8]= 7'h05; audio_cmd[8]=9'h06;  //Digital path
 	audio_reg[9]= 7'h02; audio_cmd[9]=9'h7B; //Left Volume
 	audio_reg[10]= 7'h03; audio_cmd[10]=9'h7B; //Right Volume
+*/
 end
 
 
