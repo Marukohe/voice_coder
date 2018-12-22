@@ -104,8 +104,8 @@ wire wrfullq2;
 wire rdemptyq1;
 wire wrfullq1;
 */
-reg [9:0] rdaddr;    //输入队列读指针
-reg [9:0] wraddr;    //输入队列写指针
+reg [9:0] rdaddr=0;    //输入队列读指针
+reg [9:0] wraddr=0;    //输入队列写指针
 reg rden = 1'b0;            //输入读使能
 reg wren = 1'b1;            //输入写使能
 reg flagread;
@@ -116,7 +116,7 @@ wire iff_sop;          //ifft的输出开始信号
 wire fft_ready;        //fft开始输入信号
 wire [15:0] ifftout;   //ifft输出
 reg [9:0] outqreadaddr = 10'b1100000001;   //输出队列读指针
-reg [9:0] outqwriteaddr;  //输出队列写指针
+reg [9:0] outqwriteaddr=0;  //输出队列写指针
 wire [15:0] finaldata; //输出队列的输出数据
 wire [15:0] outputdata;
 wire outqren;          //输出队列的读使能
@@ -124,9 +124,9 @@ wire outqwen;          //输出队列的写使能
 //wire CLK96k;      //96kHz 时钟
 
 reg [9:0] cntwrite = 10'b1100000001;   //记录输入队列的写地址,每次256开始读使能有效
-reg [9:0] cntread;     //记录输入队列读地址，每次512结束，读使能失效
+reg [9:0] cntread=0;     //记录输入队列读地址，每次512结束，读使能失效
 reg [15:0] outq [0:1023];
-reg [9:0] cntoutread;  //记录输入队列地写地址
+reg [9:0] cntoutread=0;  //记录输入队列地写地址
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -166,6 +166,49 @@ I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiod
 
 ram2 inq1(audiodata,rdaddr,CLOCK_50,rden,wraddr,AUD_ADCLRCK,wren,audioout);
 
+//===============================
+//for test
+//===============================
+always @(posedge AUD_ADCLRCK)
+begin
+  if(wren)
+  begin
+	if(cntwrite>=8'd255)
+	begin
+		//rden <= 1'b1;
+		cntwrite <= 0;
+	end
+	else
+	begin
+		wraddr <= wraddr + 1'b1;
+		cntwrite <= cntwrite + 1'b1;
+	end
+  end
+end
+
+always @(posedge CLOCK_50)
+begin
+  if(cntwrite == 8'd255 && flagread == 1'b1)
+  begin
+	rden <= 1'b1;
+	if(cntread >= 9'd511)
+	begin
+	  cntread <= cntread-9'd256;
+	  flagread <= 0;
+	  rden <= 0;
+	end
+	else
+	begin
+	  rdaddr <= rdaddr + 1'b1;
+	  cntread<=cntread + 1'b1;
+	end
+  end
+  if(cntwrite==3'd4)
+	flagread <= 1'b1;
+end
+
+
+
 //==================
 //输入队列地址使能控制
 //==================
@@ -176,7 +219,7 @@ begin
   rdaddr<=rdaddr+1'b1;
 end
 */
-
+/*
 always @(posedge AUD_ADCLRCK)
 begin
   if(wren)
@@ -217,21 +260,22 @@ begin
 		flagread<=1'b1;
 	end
 end
+*/
 //====================================
 //乘海明窗
 //====================================
-mul_hanning hanning(CLOCK_50,audioout,hanout,cntread);
+//mul_hanning hanning(CLOCK_50,audioout,hanout,cntread);
 
 //=====================================
 //fft和ifft
 //=====================================
-fft_and_ifft myfft(CLOCK_50,rden,hanout,outqwen,ifftout);
+//fft_and_ifft myfft(CLOCK_50,rden,hanout,outqwen,ifftout);
 
 //=====================================
 //输出缓冲队列
 //=====================================
 //ram2 outq(ifftout,ifftread,AUD_ADCLRCK,1'b1,ifftwrite,CLOCK_50,outqwen,finaldata);
-
+/*
 always @(posedge CLOCK_50)
 begin
   if(outqwen)
@@ -265,6 +309,43 @@ end
 always @(posedge AUD_ADCLRCK)
 begin
   outqreadaddr <= outqreadaddr+1'b1;
+end
+*/
+
+//========================================
+// test out que
+//========================================
+
+always @(posedge CLOCK_50)
+begin
+  if(rden)
+  begin
+	if(cntoutread >= 8'd255)
+	begin
+	  if(cntoutread >= 9'd511)
+	  begin
+		cntoutread <= 0;
+		outqwriteaddr <= outqwriteaddr-9'd256;
+	  end
+	  else
+	  begin
+		outq[outqwriteaddr] <= audioout;
+		outqwriteaddr <= outqwriteaddr+1'b1;
+		cntoutread <= cntoutread +1'b1;
+	  end
+	end
+	else
+	begin
+	  outq[outqwriteaddr] <= audioout;
+	  outqwriteaddr <= outqwriteaddr+1'b1;
+	  cntoutread <= cntoutread + 1'b1;
+	end
+  end
+end
+
+always @(posedge AUD_ADCLRCK)
+begin
+	outqreadaddr <= outqreadaddr+1'b1;
 end
 
 

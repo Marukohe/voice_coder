@@ -4,6 +4,18 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
 					"name" : "LEDR[3]",
 					"strict" : false
 				},
@@ -132,18 +144,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[0]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDR[1]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDR[2]",
-					"strict" : false
-				},
-				{
 					"name" : "AUD_ADCLRCK",
 					"strict" : false
 				},
@@ -164,11 +164,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "AUD_ADCDAT",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
 					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "AUD_ADCDAT",
 					"strict" : false
 				}
 			]
