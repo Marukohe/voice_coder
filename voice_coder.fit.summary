@@ -1,17 +1,17 @@
-Fitter Status : Successful - Fri Dec 21 21:28:42 2018
+Fitter Status : Successful - Sat Dec 22 00:53:53 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : voice_coder
 Top-level Entity Name : voice_coder
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 12,925 / 41,910 ( 31 % )
-Total registers : 17739
+Logic utilization (in ALMs) : 16,797 / 41,910 ( 40 % )
+Total registers : 25798
 Total pins : 168 / 499 ( 34 % )
 Total virtual pins : 0
-Total block memory bits : 16,384 / 5,662,720 ( < 1 % )
-Total RAM Blocks : 2 / 553 ( < 1 % )
-Total DSP Blocks : 0 / 112 ( 0 % )
+Total block memory bits : 116,084 / 5,662,720 ( 2 % )
+Total RAM Blocks : 66 / 553 ( 12 % )
+Total DSP Blocks : 17 / 112 ( 15 % )
 Total HSSI RX PCSs : 0 / 9 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 9 ( 0 % )
 Total HSSI TX PCSs : 0 / 9 ( 0 % )

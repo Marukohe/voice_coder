@@ -115,7 +115,7 @@ wire iff_eop;          //ifft的输出结束使能
 wire iff_sop;          //ifft的输出开始信号
 wire fft_ready;        //fft开始输入信号
 wire [15:0] ifftout;   //ifft输出
-reg [9:0] outqreadaddr = 10'b10000001;   //输出队列读指针
+reg [9:0] outqreadaddr = 10'b1100000001;   //输出队列读指针
 reg [9:0] outqwriteaddr;  //输出队列写指针
 wire [15:0] finaldata; //输出队列的输出数据
 wire [15:0] outputdata;
@@ -151,7 +151,7 @@ clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, KEY[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, outq[outqreadaddr]);
+I2S_Audio myaudio(AUD_XCK, SW[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, outq[outqreadaddr]);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
 I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, HEX0,HEX1,HEX2,HEX3,LEDR[3],HEX4,HEX5);
@@ -212,7 +212,7 @@ begin
 		cntread <= cntread+1'b1;
 	  end
 	end
-	if(cntwrite == 8'd12)
+	if(cntwrite == 3'd4)
 	begin
 		flagread<=1'b1;
 	end
@@ -220,12 +220,12 @@ end
 //====================================
 //乘海明窗
 //====================================
-//mul_hanning hanning(CLOCK_50,audioout,hanout);
+mul_hanning hanning(CLOCK_50,audioout,hanout,cntread);
 
 //=====================================
 //fft和ifft
 //=====================================
-//fft_and_ifft myfft(CLOCK_50,hanout,fftready,iff_sop,iff_eop,ifftout,outqwen);
+fft_and_ifft myfft(CLOCK_50,rden,hanout,outqwen,ifftout);
 
 //=====================================
 //输出缓冲队列
@@ -234,7 +234,7 @@ end
 
 always @(posedge CLOCK_50)
 begin
-  if(rden)
+  if(outqwen)
   begin
 	if(cntoutread>=8'd255)
 	begin
@@ -245,16 +245,16 @@ begin
 		end
 		else
 		begin
-			//outq[outqwriteaddr] <= ifftout;
-			outq[outqwriteaddr] <= audioout;
+			outq[outqwriteaddr] <= ifftout;
+			//outq[outqwriteaddr] <= hanout;
 			cntoutread <= cntoutread+1'b1;
 			outqwriteaddr <= outqwriteaddr+1'b1;
 		end
 	end
 	else
 	begin
-		//outq[outqwriteaddr] <= outq[outqwriteaddr] + ifftout;
-		outq[outqwriteaddr] <= outq[outqwriteaddr] + audioout;
+		outq[outqwriteaddr] <= outq[outqwriteaddr] + ifftout;
+		//outq[outqwriteaddr] <= outq[outqwriteaddr] + hanout;
 		outqwriteaddr<=outqwriteaddr+1'b1;
 		cntoutread <= cntoutread+1'b1;
 	end

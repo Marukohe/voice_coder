@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at mul_hanning.v(14): always construct contains both blocking and non-blocking assignments File: D:/My_design/voice_coder/mul_hanning.v Line: 14
