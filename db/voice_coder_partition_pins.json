@@ -16,10 +16,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[3]",
-					"strict" : false
-				},
-				{
 					"name" : "LEDR[6]",
 					"strict" : false
 				},

@@ -1,5 +1,5 @@
 Flow report for voice_coder
-Sat Dec 22 10:59:21 2018
+Sat Dec 22 11:56:34 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Dec 22 10:58:45 2018       ;
+; Flow Status                     ; Successful - Sat Dec 22 11:56:24 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; voice_coder                                 ;
 ; Top-level Entity Name           ; voice_coder                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 8,261 / 41,910 ( 20 % )                     ;
-; Total registers                 ; 16578                                       ;
+; Logic utilization (in ALMs)     ; 164 / 41,910 ( < 1 % )                      ;
+; Total registers                 ; 193                                         ;
 ; Total pins                      ; 168 / 499 ( 34 % )                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 16,384 / 5,662,720 ( < 1 % )                ;
+; Total block memory bits         ; 32,768 / 5,662,720 ( < 1 % )                ;
 ; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
 ; Total HSSI RX PCSs              ; 0 / 9 ( 0 % )                               ;
 ; Total HSSI PMA RX Deserializers ; 0 / 9 ( 0 % )                               ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/22/2018 10:54:33 ;
+; Start date & time ; 12/22/2018 11:55:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; voice_coder         ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                                    ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+----------------------------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 272903328235831.154544727208720                          ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 272903328235831.154545091209356                          ; --            ; --              ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                       ; --            ; --              ; --         ;
 ; MESSAGE_DISABLE                     ; 270007                                                   ; --            ; in_fft_fft_ii_0 ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                        ; --            ; --              ; --         ;
@@ -111,11 +111,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:41     ; 1.4                     ; 5101 MB             ; 00:01:10                           ;
-; Fitter                    ; 00:03:05     ; 1.4                     ; 6918 MB             ; 00:09:01                           ;
-; Assembler                 ; 00:00:16     ; 1.0                     ; 4991 MB             ; 00:00:16                           ;
-; TimeQuest Timing Analyzer ; 00:00:35     ; 2.9                     ; 5478 MB             ; 00:01:33                           ;
-; Total                     ; 00:04:37     ; --                      ; --                  ; 00:12:00                           ;
+; Analysis & Synthesis      ; 00:00:23     ; 1.0                     ; 4914 MB             ; 00:00:46                           ;
+; Fitter                    ; 00:00:40     ; 1.0                     ; 6761 MB             ; 00:01:18                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4857 MB             ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:09     ; 1.1                     ; 5218 MB             ; 00:00:09                           ;
+; Total                     ; 00:01:19     ; --                      ; --                  ; 00:02:20                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

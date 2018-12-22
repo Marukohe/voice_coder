@@ -3,14 +3,7 @@ module I2S_Audioin(AUD_XCK,
                  AUD_BCK,
 				 AUD_DATA,
 				 AUD_LRCK,
-				 audiodata,
-				 hex0,
-				 hex1,
-				 hex2,
-				 hex3,
-				 led0,
-				 hex4,
-				 hex5
+				 audiodata
 				 //AUD_96CLK
 				 );
 input AUD_XCK;
@@ -25,6 +18,7 @@ output reg [15:0] audiodata;
 //test
 //=================================
 reg [7:0] datacount; 
+/*
 output reg [6:0] hex0;
 output reg [6:0] hex1;
 output reg [6:0] hex2;
@@ -32,6 +26,7 @@ output reg [6:0] hex3;
 output reg [6:0] hex4;
 output reg led0;
 output reg [6:0] hex5;
+*/
 ////
 //input [3:0] voi;
 ////
@@ -106,7 +101,7 @@ always @(posedge AUD_DATA)
 begin
 	datacount<=8'hac;
 end
-		
+/*		
 always @(*)
 begin
 	case(audiodata[3:0])
@@ -232,6 +227,6 @@ begin
 	 endcase
 	 
 end		
-		
+*/
 
 endmodule 

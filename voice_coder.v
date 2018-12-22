@@ -21,12 +21,12 @@ module voice_coder(
 	output		     [9:0]		LEDR,
 
 	//////////// Seg7 //////////
-	output		     [6:0]		HEX0,
-	output		     [6:0]		HEX1,
-	output		     [6:0]		HEX2,
-	output		     [6:0]		HEX3,
-	output		     [6:0]		HEX4,
-	output		     [6:0]		HEX5,
+	output		reg     [6:0]		HEX0,
+	output		reg     [6:0]		HEX1,
+	output		reg     [6:0]		HEX2,
+	output		reg     [6:0]		HEX3,
+	output		reg     [6:0]		HEX4,
+	output		reg     [6:0]		HEX5,
 
 	//////////// SDRAM //////////
 	output		    [12:0]		DRAM_ADDR,
@@ -93,6 +93,7 @@ module voice_coder(
 //  REG/WIRE declarations
 //=======================================================
 
+wire clk_test;
 wire clk_i2c;
 wire reset;
 wire [15:0] audiodata;
@@ -127,6 +128,9 @@ reg [9:0] cntwrite = 10'b1100000001;   //记录输入队列的写地址,每次25
 reg [9:0] cntread=0;     //记录输入队列读地址，每次512结束，读使能失效
 reg [15:0] outq [0:1023];
 reg [9:0] cntoutread=0;  //记录输入队列地写地址
+
+reg [15:0] audiotest=0;
+wire [15:0] audiod;
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -148,13 +152,14 @@ audio_clk u1(CLOCK_50, reset,AUD_XCK, LEDR[9]);
 
 //I2C part
 clkgen #(10000) my_i2c_clk(CLOCK_50,reset,1'b1,clk_i2c);  //10k I2C clock  
+//clkgen #(100) my_i2c_clk1(CLOCK_50,reset,1'b1,clk_test);  //10Hz test clock  
 
 I2C_Audio_Config myconfig(clk_i2c, KEY[0],FPGA_I2C_SCLK,FPGA_I2C_SDAT,LEDR[2:0]);
 
-I2S_Audio myaudio(AUD_XCK, SW[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, outq[outqreadaddr]);
+I2S_Audio myaudio(AUD_XCK, SW[0], LEDR[6], AUD_DACDAT, AUD_DACLRCK, audiod);
 
 //Sin_Generator sin_wave(AUD_DACLRCK, KEY[0], 16'h0400, audiodata);//
-I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata, HEX0,HEX1,HEX2,HEX3,LEDR[3],HEX4,HEX5);
+I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiodata);
 
 //FIFO inq2(audiodata,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoin,rdemptyq2,wrfullq2);
 //FIFO inq1(audiofifoin,AUD_ADCLRCK,SW[0],AUD_ADCLRCK,SW[1],audiofifoout,rdemptyq1,wrfullq1);
@@ -163,8 +168,13 @@ I2S_Audioin myaudioin(AUD_XCK, KEY[0], AUD_BCLK, AUD_ADCDAT, AUD_ADCLRCK, audiod
 //输入缓冲队列
 //读时钟50MHz,写时钟48kHz,写256开始读
 //====================================
+always @(posedge clk_test)
+begin
+  audiotest <= audiotest+1'b1;
+end
 
-ram2 inq1(audiodata,rdaddr,CLOCK_50,rden,wraddr,AUD_ADCLRCK,wren,audioout);
+
+ram2 inq1(audiodata,rdaddr,CLOCK_50,rden,wraddr,clk_test,wren,audioout);
 
 //===============================
 //for test
@@ -316,6 +326,9 @@ end
 // test out que
 //========================================
 
+
+ram2 outq2(audioout,outqreadaddr,clk_test,1'b1,outqwriteaddr,CLOCK_50,rden,audiod);
+
 always @(posedge CLOCK_50)
 begin
   if(rden)
@@ -329,14 +342,14 @@ begin
 	  end
 	  else
 	  begin
-		outq[outqwriteaddr] <= audioout;
+		//outq[outqwriteaddr] <= audioout;
 		outqwriteaddr <= outqwriteaddr+1'b1;
 		cntoutread <= cntoutread +1'b1;
 	  end
 	end
 	else
 	begin
-	  outq[outqwriteaddr] <= audioout;
+	  //outq[outqwriteaddr] <= audioout;
 	  outqwriteaddr <= outqwriteaddr+1'b1;
 	  cntoutread <= cntoutread + 1'b1;
 	end
@@ -352,6 +365,94 @@ end
 //===================================
 //for test
 //===================================
+
+
+//assign audiod = outq[outqreadaddr];
+
+always @(*)
+begin
+	case(audiod[3:0])
+		0: HEX0=7'b1000000;  //0
+		1: HEX0=7'b1111001;  //1
+		2: HEX0=7'b0100100;  //2
+		3: HEX0=7'b0110000;  //3
+		4: HEX0=7'b0011001;  //4
+		5: HEX0=7'b0010010;  //5
+		6: HEX0=7'b0000010;  //6
+		7: HEX0=7'b1111000;  //7
+		8: HEX0=7'b0000000;  //8
+		9: HEX0=7'b0010000;  //9
+		10: HEX0=7'b0001000;  //10
+		11: HEX0=7'b0000011;  //11
+		12: HEX0=7'b1000110;  //12
+		13: HEX0=7'b0100001;  //13
+		14: HEX0=7'b0000110;  //14
+		15: HEX0=7'b0001110;  //15
+		default: HEX0=7'b0000000;
+	 endcase 
+	 
+	 case(audiod[7:4])
+		0: HEX1=7'b1000000;  //0
+		1: HEX1=7'b1111001;  //1
+		2: HEX1=7'b0100100;  //2
+		3: HEX1=7'b0110000;  //3
+		4: HEX1=7'b0011001;  //4
+		5: HEX1=7'b0010010;  //5
+		6: HEX1=7'b0000010;  //6
+		7: HEX1=7'b1111000;  //7
+		8: HEX1=7'b0000000;  //8
+		9: HEX1=7'b0010000;  //9
+		10: HEX1=7'b0001000;  //10
+		11: HEX1=7'b0000011;  //11
+		12: HEX1=7'b1000110;  //12
+		13: HEX1=7'b0100001;  //13
+		14: HEX1=7'b0000110;  //14
+		15: HEX1=7'b0001110;  //15
+		default: HEX1=7'b0000000;
+	 endcase 
+	 
+	 case(audiod[11:8])
+		0: HEX2=7'b1000000;  //0
+		1: HEX2=7'b1111001;  //1
+		2: HEX2=7'b0100100;  //2
+		3: HEX2=7'b0110000;  //3
+		4: HEX2=7'b0011001;  //4
+		5: HEX2=7'b0010010;  //5
+		6: HEX2=7'b0000010;  //6
+		7: HEX2=7'b1111000;  //7
+		8: HEX2=7'b0000000;  //8
+		9: HEX2=7'b0010000;  //9
+		10: HEX2=7'b0001000;  //10
+		11: HEX2=7'b0000011;  //11
+		12: HEX2=7'b1000110;  //12
+		13: HEX2=7'b0100001;  //13
+		14: HEX2=7'b0000110;  //14
+		15: HEX2=7'b0001110;  //15
+		default: HEX2=7'b0000000;
+	 endcase
+	 
+	 case(audiod[15:12])
+		0: HEX3=7'b1000000;  //0
+		1: HEX3=7'b1111001;  //1
+		2: HEX3=7'b0100100;  //2
+		3: HEX3=7'b0110000;  //3
+		4: HEX3=7'b0011001;  //4
+		5: HEX3=7'b0010010;  //5
+		6: HEX3=7'b0000010;  //6
+		7: HEX3=7'b1111000;  //7
+		8: HEX3=7'b0000000;  //8
+		9: HEX3=7'b0010000;  //9
+		10: HEX3=7'b0001000;  //10
+		11: HEX3=7'b0000011;  //11
+		12: HEX3=7'b1000110;  //12
+		13: HEX3=7'b0100001;  //13
+		14: HEX3=7'b0000110;  //14
+		15: HEX3=7'b0001110;  //15
+		default: HEX3=7'b0000000;
+	 endcase
+end		
+
+
 reg led;
 always @(*)
 begin
